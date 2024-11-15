@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mornin</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.yellow.min.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <main class="container">
+            <h1 class="title">Mornin'!</h1>
+
+            <button class="task-modal-button" onclick="toggleCreateTask()">
+                Create a task
+            </button>
+            <dialog id="create-task">
+                <article>
+                    <header>
+                        <button
+                            aria-label="Close"
+                            rel="prev"
+                            onclick="toggleCreateTask()"
+                        ></button>
+                        <p>
+                            <strong>Write a new task</strong>
+                        </p>
+                    </header>
+                    <form id="task-form">
+                        <input
+                            type="text"
+                            name="task"
+                            placeholder="task name"
+                            id="task"
+                        />
+                        <div class="task-modal grid">
+                            <input
+                                type="number"
+                                id="minutes"
+                                name="minutes"
+                                min="0"
+                                max="59"
+                                placeholder="minutes"
+                            />
+                            <input
+                                type="number"
+                                id="seconds"
+                                name="seconds"
+                                min="0"
+                                max="59"
+                                placeholder="seconds"
+                            />
+                            <input
+                                class="create-task-button"
+                                type="submit"
+                                value="Create task"
+                                onclick="toggleCreateTask()"
+                            />
+                        </div>
+                    </form>
+                </article>
+            </dialog>
+            <div id="task-list"></div>
+            <dialog id="edit-task">
+                <article>
+                    <header>
+                        <button
+                            aria-label="Close"
+                            rel="prev"
+                            onclick="toggleEditTask()"
+                        ></button>
+                        <p>
+                            <strong>Edit a task</strong>
+                        </p>
+                    </header>
+                    <div>
+                        <input
+                            type="text"
+                            name="task"
+                            placeholder="task name"
+                            id="edit-task-name"
+                        />
+                        <div class="task-modal grid">
+                            <input
+                                type="number"
+                                id="edit-minutes"
+                                name="minutes"
+                                min="0"
+                                max="59"
+                                placeholder="minutes"
+                            />
+                            <input
+                                type="number"
+                                id="edit-seconds"
+                                name="seconds"
+                                min="0"
+                                max="59"
+                                placeholder="seconds"
+                            />
+                            <input
+                                type="button"
+                                value="&#x2705;"
+                                onclick="editTaskForm()"
+                            />
+
+                            <input
+                                type="button"
+                                value="&#x1F5D1;"
+                                onclick="deleteTask()"
+                            />
+                        </div>
+                    </div>
+                </article>
+            </dialog>
+        </main>
+    </body>
+</html>
